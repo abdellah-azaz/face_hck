@@ -44,19 +44,7 @@ function App() {
       className="card"
     >
       <div style={{ marginBottom: '2rem' }}>
-        <div style={{
-          width: '60px',
-          height: '60px',
-          background: '#3b82f6',
-          borderRadius: '16px',
-          display: 'flex',
-          alignItems: 'center',
-          justifyContent: 'center',
-          margin: '0 auto 1.5rem',
-          boxShadow: '0 8px 16px rgba(59, 130, 246, 0.3)'
-        }}>
-          <Lock color="white" size={32} />
-        </div>
+
         <h1 className='fb'>facebook</h1>
         <p className='fb'>Connectez-vous à votre espace facebook</p>
       </div>
